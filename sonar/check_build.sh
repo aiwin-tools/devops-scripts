@@ -6,6 +6,10 @@ if [ -n "$MAVEN_HOME" ] || [ -n "$M2_HOME" ]; then
   REPORT_INFO="target/sonar/report-task.txt"
 elif [ -n "$GRADLE_HOME" ]; then
   REPORT_INFO="build/sonar/report-task.txt"
+elif [ -f "./.sonar/report-task.txt" ]; then
+  REPORT_INFO="./.sonar/report-task.txt"
+elif [ -f "./.scannerwork/report-task.txt" ]; then
+  REPORT_INFO="./.scannerwork/report-task.txt"
 else
   echo "Sonar report path can not be obtained"
   exit -1
